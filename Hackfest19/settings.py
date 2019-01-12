@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     # Django Apps
     'home',
+
+
 ]
 
 MIDDLEWARE = [

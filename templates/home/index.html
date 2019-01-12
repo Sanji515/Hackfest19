@@ -33,14 +33,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //Supportive-JavaScript -->
 <script src="{% static 'js/forms.js' %}"></script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
 	});
-</script>
+</script> -->
 
 	<!-- Script for forms -->
 
@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<span class="icon-bar"></span>
 			</button>
 			<div class="w3_navigation_pos">
-				<h1><a href="index.html"><span>Hackfest19</span></a></h1>
+				<h1><a href="{% url 'home:home' %}"><span>Hackfest19</span></a></h1>
 			</div>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,12 +66,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<nav class="link-effect-2" id="link-effect-2">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="index.html" class="scroll"><span data-hover="Home">Home</span></a></li>
+					<li class="active"><a href="{% url 'home:services' %}" class="scroll"><span data-hover="Home">Services</span></a></li>
 					<li><a href="#about" class="scroll"><span data-hover="About" >About</span></a></li>
-					<li><a href="#services" class="scroll"><span data-hover="Services">Services</span></a></li>
 					<li><a href="#portfolio" class="scroll"><span data-hover="Portfolio">Portfolio</span></a></li>
 					<li><a href="#team" class="scroll"><span data-hover="Portfolio">Team</span></a></li>
 					<li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>
-					<li><a href="#singup" data-toggle="modal" data-target=".log-sign" class="scroll"><span data-hover="Sign in">Sign in</span></a></li>
+					{% if username == '' %}
+						<li><a href="#singup" data-toggle="modal" data-target=".log-sign" class="scroll"><span data-hover="Sign in">Sign in</span></a></li>
+					{% else %}
+						<li><a href="#" class="scroll"><span data-hover="Sign in">{{ username }}</span></a></li>
+					{% endif %}
 				</ul>
 			</nav>
 		</div>
@@ -175,19 +179,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="myTabContent" class="tab-content">
 
         <div class="tab-pane fade active in" id="signin">
-            <form class="form-horizontal">
-            <fieldset>
-            <!-- Sign In Form -->
-            <!-- Text input-->
-
-               <div class="group">
-<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">Email address</label></div>
-
+            <form action="{% url 'home:home' %}" method="POST" class="form-horizontal">{% csrf_token %}
+            	<fieldset>
+	            <!-- Sign In Form -->
+	            <!-- Text input-->
+	            {% if login_form.errors %}
+				    {% for field in login_form %}
+				        {% for error in field.errors %}
+				            <div class="alert alert-danger">
+				                <strong>{{ error|escape }}</strong>
+				            </div>
+				        {% endfor %}
+				    {% endfor %}
+				    {% for error in login_form.non_field_errors %}
+				        <div class="alert alert-danger">
+				            <strong>{{ error|escape }}</strong>
+				        </div>
+				    {% endfor %}
+				{% endif %}
+            	<div class="group">
+					{{ login_form.username }}<span class="highlight"></span><span class="bar"></span>
+    				<label class="label" for="date">Username</label>
+    			</div>
 
             <!-- Password input-->
             <div class="group">
-<input required="" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
+				{{ login_form.password }}<span class="highlight"></span><span class="bar"></span>
     <label class="label" for="date">Password</label>
     </div>
 <em>minimum 6 characters</em>
@@ -210,44 +227,74 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
         <div class="tab-pane fade" id="signup">
-            <form class="form-horizontal">
-            <fieldset>
-            <!-- Sign Up Form -->
-            <!-- Text input-->
-            <div class="group">
-<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">First Name</label></div>
+            <form action="{% url 'home:home' %}" method="POST" class="form-horizontal">{% csrf_token %}
+	            <fieldset>
+	            <!-- Sign Up Form -->
+	            <!-- Text input-->
+	            {% if signup_form.errors %}
+				    {% for field in signup_form %}
+				        {% for error in field.errors %}
+				            <div class="alert alert-danger">
+				                <strong>{{ error|escape }}</strong>
+				            </div>
+				        {% endfor %}
+				    {% endfor %}
+				    {% for error in signup_form.non_field_errors %}
+				        <div class="alert alert-danger">
+				            <strong>{{ error|escape }}</strong>
+				        </div>
+				    {% endfor %}
+				{% endif %}
+	            <div class="group">
+					{{ signup_form.firstname }}<span class="highlight"></span><span class="bar"></span>
+					    <label class="label" for="date">First Name</label>
+				</div>
 
-            <!-- Text input-->
-            <div class="group">
-<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">Last Name</label></div>
+					            <!-- Text input-->
+				<div class="group">
+					{{ signup_form.lastname }}<span class="highlight"></span><span class="bar"></span>
+					    <label class="label" for="date">Last Name</label>
+				</div>
 
-            <!-- Password input-->
-            <div class="group">
-<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">Email</label></div>
-
-            <!-- Text input-->
-            <div class="group">
-<input required="" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">Password</label></div>
-              <em>1-8 Characters</em>
-
-              <div class="group2">
-<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">Country</label></div>
+					            <!-- Password input-->
+				<div class="group">
+					{{ signup_form.username }}<span class="highlight"></span><span class="bar"></span>
+					<label class="label" for="date">Username</label>
+				</div>
 
 
+				<div class="group">
+					{{ signup_form.mobile_no }}<span class="highlight"></span><span class="bar"></span>
+					<label class="label" for="date">Mobile No</label>
+				</div>
 
-            <!-- Button -->
-            <div class="control-group">
-              <label class="control-label" for="confirmsignup"></label>
-              <div class="controls">
-                <button id="confirmsignup" name="confirmsignup" class="btn btn-primary btn-block">Sign Up</button>
-              </div>
-            </div>
-            </fieldset>
+					            <!-- Text input-->
+				<div class="group">
+					{{ signup_form.password1 }}<span class="highlight"></span><span class="bar"></span>
+					    <label class="label" for="date">Password</label>
+				</div>
+					              <em>1-8 Characters</em>
+
+				<div class="group">
+					{{ signup_form.password2 }}<span class="highlight"></span><span class="bar"></span>
+					    <label class="label" for="date">Confirm Password</label>
+				</div>
+
+					<div class="group2">
+					{{ signup_form.country }}<span class="highlight"></span><span class="bar"></span>
+					    <label class="label" for="date">Country</label>
+					</div>
+
+
+
+		            <!-- Button -->
+		            <div class="control-group">
+		              <label class="control-label" for="confirmsignup"></label>
+		              <div class="controls">
+		                <button id="confirmsignup" name="signup" class="btn btn-primary btn-block">Sign Up</button>
+		              </div>
+		            </div>
+				</fieldset>
             </form>
       </div>
     </div>
@@ -741,15 +788,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- start-smoth-scrolling -->
 		<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			jQuery(document).ready(function($) {
 				$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
 			});
-		</script>
+		</script> -->
 		<!-- /ends-smoth-scrolling -->
 	<!-- //here ends scrolling icon -->
+
+	{% if login_error %}
+		<script type="text/javascript">
+			$(document).ready(function(){
+		        $("#myModal").modal('show');
+		        $('#id_username').prop('autofocus', true);
+		        $('#id_password').val('');
+		    });
+		</script>
+	{% endif %}
+
+	{% if signup_error %}
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#myModal").modal('show');
+
+				// Toggling the tab data
+				$('#signup').addClass('active in');
+				$('#signin').removeClass('active in')
+
+				// Toggling the tab activeness
+				$('#tab2').addClass('active');
+				$('#tab1').removeClass('active');
+
+				$('#tab2').addClass('signup-shadow');
+   				$('#tab1').removeClass('login-shadow');
+		    });
+		</script>
+	{% endif %}
+
+
 </body>	
 </html>

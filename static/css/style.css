@@ -122,7 +122,7 @@ input[type="submit"],input[type="reset"],a{
     font-weight: 700;
 }
 .navbar-nav > li > a {
-    margin: 0em 2.25em;
+    margin: 0em 2em;
     padding: 0 .1em;
     line-height: 1em;
     text-transform: uppercase;
@@ -611,6 +611,9 @@ span.w3ls-icon.fa.fa-cog {
 }
 span.w3ls-icon.fa.fa-tint {
     color: #1b9bcc;
+}
+span.w3ls-icon.fa.fa-user-circle-o {
+    color: #c52978;
 }
 span.w3ls-icon.fa.fa-pagelines {
     color: #2e6314;
@@ -1411,7 +1414,7 @@ h4.modal-title {
 		width: 94%;
 	}
 	.navbar-nav > li:nth-child(1) a {
-		margin-left: 10em;
+		margin-left: 5em;
 	}
 	.banner-info {
 		padding: 7em 0 0;

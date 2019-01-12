@@ -1,0 +1,111 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Grains an Agriculture Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Grains Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //custom-theme -->
+<script type="text/javascript" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+<!-- stylesheet -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- Chocolat-CSS --> <link rel="stylesheet" href="{% static 'css/chocolat.css' %}" type="text/css" media="all">
+<!-- animation --><link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" media="all">
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- //stylesheet -->
+<!-- online fonts -->
+<link href="//fonts.googleapis.com/css?family=Cormorant+Unicase:300,400,500,600,700&subset=cyrillic,latin-ext,vietnamese" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- //online fonts -->
+<!-- font-awesome-icons -->
+<link href="{% static 'css/font-awesome.css' %}" type="text/css" rel="stylesheet">
+<!-- //font-awesome-icons -->
+<!-- Supportive-JavaScript -->
+<script src="{% static 'js/modernizr.js' %}"></script>
+<!-- //Supportive-JavaScript -->
+<script src="{% static 'js/forms.js' %}"></script>
+
+<!-- <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script> -->
+
+	<!-- Script for forms -->
+
+</head>
+<body>
+<!-- banner -->
+<div class="banner">
+	<nav class="navbar navbar-default">
+		<div class="container">
+		<div class="navbar-header navbar-left">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="w3_navigation_pos">
+				<h1><a href="{% url 'home:home' %}"><span>Hackfest19</span></a></h1>
+			</div>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+			<nav class="link-effect-2" id="link-effect-2">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html" class="scroll"><span data-hover="Home">Home</span></a></li>
+					<li><a href="#about" class="scroll"><span data-hover="About" >About</span></a></li>
+					<li><a href="{% url 'home:services' %}" class="scroll"><span data-hover="Services">Services</span></a></li>
+					<li><a href="#portfolio" class="scroll"><span data-hover="Portfolio">Portfolio</span></a></li>
+					<li><a href="#team" class="scroll"><span data-hover="Portfolio">Team</span></a></li>
+					<li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>
+					{% if username == '' %}
+						<li><a href="#singup" data-toggle="modal" data-target=".log-sign" class="scroll"><span data-hover="Sign in">Sign in</span></a></li>
+					{% else %}
+						<li><a href="#" class="scroll"><span data-hover="Sign in">{{ username }}</span></a></li>
+					{% endif %}
+				</ul>
+			</nav>
+		</div>
+		</div>
+	</nav>
+
+    <!-- Crops -->
+    <div class="jarallax wthreelocationsaits agile-section" id="portfolio" style="background-image: url('{% static "images/7.jpg" %}');   width: 100%; height: 100%;";>
+	<div class="container">
+		<span class="wthree-line wthree-left"></span>
+		<span class="wthree-line wthree-right"></span>
+		<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+			<h3 class="agileits-title text-center">Categories</h3>
+			<section class="grid3d vertical" id="grid3d">
+				<div class="grid-wrap">
+					<div class="grid">
+						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/wheat.jpeg' %}" height="250" width="42" alt="Odyssey" ><figcaption><h4>WHEAT</h4></figcaption></figure></a>
+						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/corn.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>CORN</h4></figcaption></figure></a>
+						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/rice.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>RICE</h4></figcaption></figure></a>
+						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/millet.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>MILLET</h4></figcaption></figure></a>
+						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/sugarcane.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>SUGARCANE</h4></figcaption></figure></a>
+						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/cotton.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COTTON</h4></figcaption></figure></a>
+						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/coconut.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COCONUT</h4></figcaption></figure></a>
+						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/jute.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>JUTE</h4></figcaption></figure></a>
+						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/coffee.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COFFEE</h4></figcaption></figure></a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+</body>
+</html>
