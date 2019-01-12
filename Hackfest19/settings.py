@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     # Django Apps
     'home',
 
-    # Third party apps
-    'crispy_forms'
 ]
 
 MIDDLEWARE = [

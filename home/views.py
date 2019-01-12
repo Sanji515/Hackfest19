@@ -88,6 +88,14 @@ def index(request):
 
     return render(request, 'home/index.html', context)
 
+def details(request):
+    context={}
+    return render(request, 'home/detail.html', context)
+
+def crops(request):
+    context={}
+    return render(request, 'home/crops.html', context)
+
 
 def logout_url(request):
     logout(request)
