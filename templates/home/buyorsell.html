@@ -216,7 +216,7 @@ fieldset {
 
 <div>
   {% if empty_list %}
-    <span class="current_crop"></span>
+    <span class="current_crop">
     <div style="height: auto; width: 60%; float: left;">
     <div class="style_prevu_kit" style="height:auto; width:100%;  margin-left:5%; margin-bottom:5%;">
       <h2><font face="verdana" color="#2E4053"> <span id="name"></span></font></h2>
@@ -224,6 +224,7 @@ fieldset {
           Sorry! there are no available crops for this commodity.
         </div>
     </div>
+    </span>
   {% else %}
     <span class="current_crop"></span>
     {% for farmer in farmers %}
@@ -236,6 +237,7 @@ fieldset {
               <span id="display_location">{{farmer.location}}</span>
               <span id="display_quantity">{{farmer.quantity}}</span>
               <span id="display_description">{{farmer.description}}</span>
+              <span id="display_mobile_no">{{farmer.crop_mobile_no}}</span>
         </font></p>
       </div>
       </div>
@@ -292,7 +294,10 @@ fieldset {
               },
               dataType: 'json',
               success: function (response){
-                   $('.current_crop').append('<div style="height: auto; width: 60%; float: left;"><div class="style_prevu_kit" style="height:auto; width:100%;  margin-left:5%; margin-bottom:5%;"><h2><font face="verdana" color="#2E4053"> <span id="name"></span></font></h2><p style="font-size: 17px"><font face="verdana" color="#2E4053"><span id="display_name">'+response.fullname+'</span><span id="display_price">'+response.price+'</span><span id="display_location">'+response.location+'</span><span id="display_quantity">'+response.quantity+'</span><span id="display_description">'+response.description+'</span></font></p></div></div>');
+                {% if empty_list %}
+                  $('.current_crop').html('');
+                {% endif %}
+                   $('.current_crop').append('<div style="height: auto; width: 60%; float: left;"><div class="style_prevu_kit" style="height:auto; width:100%;  margin-left:5%; margin-bottom:5%;"><h2><font face="verdana" color="#2E4053"> <span id="name"></span></font></h2><p style="font-size: 17px"><font face="verdana" color="#2E4053"><span id="display_name">'+response.fullname+'</span><span id="display_price">'+response.price+'</span><span id="display_location">'+response.location+'</span><span id="display_quantity">'+response.quantity+'</span><span id="display_description">'+response.description+'</span><span id="display_mobile_no">'+response.crop_mobile_no+'</span></font></p></div></div>');
               },
               error: function(rs, e){
                   console.log("This is error");

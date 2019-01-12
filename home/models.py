@@ -23,6 +23,7 @@ class Profile(models.Model):
 
 class Farmers(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    crop_id = models.IntegerField(default=0, null=True)
     price = models.IntegerField(default=0, null=True)
     quantity = models.CharField(max_length=100, blank=True, null=True)
     location = models.CharField(max_length=100, blank=True, null=True)
