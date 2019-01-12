@@ -178,7 +178,7 @@ nav.navbar.navbar-default {
     background-position: 50% 50%;
 }
 .banner-info{
-    padding: 12.5em 0 0;
+    padding: 2.5em 0 0;
 }
 .w3ls-text {
     padding: 3em 2em;
@@ -486,7 +486,7 @@ span.wthree-line {
     position: absolute;
     background: #ffb500;
     height: 3px;
-    width: 65px;
+    width: 90px;
     top: 18.2%;
 }
 span.wthree-left {
@@ -1226,7 +1226,7 @@ div#contact {
     margin: 7em 0 5em;
 }
 .w3_agileits-contact-grid {
-    width: 24.06%;
+    width: 32.06%;
     float: left;
     padding: 1em 1.2em;
     border: 1px solid #bdbbbb;
