@@ -130,6 +130,7 @@ def single_crop(request, pk):
         print(fullname)
 
         farmer = Farmers.objects.create(user=user)
+        farmer.crop_id = pk
         price = request.POST.get('price')
         print(request.POST.get('quantity'))
         print(int(price))
@@ -137,7 +138,7 @@ def single_crop(request, pk):
         farmer.price = int(price)
         farmer.quantity = request.POST.get('quantity')
         farmer.location = request.POST.get('location')
-        farmer.crop_mobile_no = request.POST.get('crop_mobile_no')
+        farmer.crop_mobile_no = request.POST.get('phone')
         farmer.description = request.POST.get('description')
         farmer.save()
 
@@ -148,7 +149,7 @@ def single_crop(request, pk):
             'price': request.POST.get('price'),
             'quantity': request.POST.get('quantity'),
             'location': request.POST.get('location'),
-            'crop_mobile_no': request.POST.get('crop_mobile_no'),
+            'crop_mobile_no': request.POST.get('phone'),
             'description': request.POST.get('description'),
             'fullname': fullname
         }
@@ -160,7 +161,8 @@ def single_crop(request, pk):
     else:
         username = ''
 
-    farmers = Farmers.objects.all()
+
+    farmers = Farmers.objects.filter(crop_id=pk)
     user = get_object_or_404(User, Q(username=request.user.username))
         
     profile = get_object_or_404(Profile, Q(user=user))

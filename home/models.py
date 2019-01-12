@@ -18,11 +18,10 @@ class Profile(models.Model):
     # email = models.EmailField(max_length=70, blank=True)
     city = models.CharField(max_length=100, blank=True)
 
-    def __str__(self):
-        return self.user
 
 class Farmers(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    crop_id = models.IntegerField(default=0, null=True)
     price = models.IntegerField(default=0, null=True)
     quantity = models.CharField(max_length=100, blank=True, null=True)
     location = models.CharField(max_length=100, blank=True, null=True)
