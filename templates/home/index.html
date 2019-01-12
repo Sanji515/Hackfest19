@@ -48,39 +48,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- banner -->
 <div class="banner">
-	<nav class="navbar navbar-default">
-		<div class="container">
-		<div class="navbar-header navbar-left">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<div class="w3_navigation_pos">
-				<h1><a href="{% url 'home:home' %}"><span>Hackfest19</span></a></h1>
-			</div>
-		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-			<nav class="link-effect-2" id="link-effect-2">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.html" class="scroll"><span data-hover="Home">Home</span></a></li>
-					<li class="active"><a href="{% url 'home:services' %}" class="scroll"><span data-hover="Home">Services</span></a></li>
-					<li><a href="#about" class="scroll"><span data-hover="About" >About</span></a></li>
-					<li><a href="#portfolio" class="scroll"><span data-hover="Portfolio">Portfolio</span></a></li>
-					<li><a href="#team" class="scroll"><span data-hover="Portfolio">Team</span></a></li>
-					<li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>
-					{% if username == '' %}
-						<li><a href="#singup" data-toggle="modal" data-target=".log-sign" class="scroll"><span data-hover="Sign in">Sign in</span></a></li>
-					{% else %}
-						<li><a href="#" class="scroll"><span data-hover="Sign in">{{ username }}</span></a></li>
-					{% endif %}
-				</ul>
-			</nav>
-		</div>
-		</div>
-	</nav>	
+	{% include 'globals/navbar.html' %}
+
+
 	<div class="banner-info">
 		<div class="container">
 			<div class="slider">
