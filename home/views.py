@@ -1,11 +1,10 @@
-# !/usr/bin/env python
-
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
+from django.http import HttpResponse, JsonResponse
 
-from .models import Profile
+from .models import Profile, Crop, Farmers
 from .forms import YourSignupForm, YourLoginForm
 
 import matplotlib.pyplot as plt
@@ -106,7 +105,35 @@ def crops(request):
     return render(request, 'home/crops.html', context)
 
 def single_crop(request, pk):
-    context = {}
+    if request.method == 'POST':
+        print('POST ajax')
+        user = get_object_or_404(User, Q(username=request.user.username))
+        crop = get_object_or_404(Crop, Q(crop_id=pk))
+        
+        farmer = Farmers.objects.create(user=user)
+        farmer.price = request.POST.get('price')
+        farmer.quantity = request.POST.get('quantity')
+        farmer.location = request.POST.get('location')
+        farmer.crop_mobile_no = request.POST.get('crop_mobile_no')
+        farmer.description = request.POST.get('description')
+        farmer.save()
+
+        crop.farmers.add(farmer)
+        crop.save()
+
+        context = {
+            'price': request.POST.get('price'),
+            'quantity': request.POST.get('quantity'),
+            'location': request.POST.get('location'),
+            'crop_mobile_no': request.POST.get('crop_mobile_no'),
+            'description': request.POST.get('description')
+        }
+
+        return HttpResponse(JsonResponse(context), content_type='application/json')
+
+    context = {
+        'pk': pk
+    }
 
     return render(request, 'home/buyorsell.html', context)
 

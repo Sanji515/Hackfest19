@@ -18,7 +18,22 @@ class Profile(models.Model):
     # email = models.EmailField(max_length=70, blank=True)
     city = models.CharField(max_length=100, blank=True)
 
+    def __str__(self):
+        return self.user
 
+class Farmers(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    price = models.IntegerField(default=0, blank=True)
+    quantity = models.CharField(max_length=100, blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    crop_mobile_no = models.CharField(validators=[phone_regex], max_length=17, blank=True)
+    description = models.CharField(max_length=500, blank=True, null=True)
+
+
+class Crop(models.Model):
+    crop_id = models.IntegerField(default=0, blank=True)
+    farmers = models.ManyToManyField(Farmers, blank=True)
 
 
 # This is for Profile model
