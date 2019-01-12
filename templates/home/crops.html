@@ -33,14 +33,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //Supportive-JavaScript -->
 <script src="{% static 'js/forms.js' %}"></script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
 	});
-</script>
+</script> -->
 
 	<!-- Script for forms -->
 
@@ -48,57 +48,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- banner -->
 <div class="banner">
-	<nav class="navbar navbar-default">
-		<div class="container">
-		<div class="navbar-header navbar-left">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<div class="w3_navigation_pos">
-				<h1><a href="index.html"><span>Hackfest19</span></a></h1>
-			</div>
-		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-			<nav class="link-effect-2" id="link-effect-2">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.html" class="scroll"><span data-hover="Home">Home</span></a></li>
-					<li><a href="#about" class="scroll"><span data-hover="About" >About</span></a></li>
-					<li><a href="#services" class="scroll"><span data-hover="Services">Services</span></a></li>
-					<li><a href="#portfolio" class="scroll"><span data-hover="Portfolio">Portfolio</span></a></li>
-					<li><a href="#team" class="scroll"><span data-hover="Portfolio">Team</span></a></li>
-					<li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>
-					{% if username == '' %}
-						<li><a href="#singup" data-toggle="modal" data-target=".log-sign" class="scroll"><span data-hover="Sign in">Sign in</span></a></li>
-					{% else %}
-						<li><a href="#" class="scroll"><span data-hover="Sign in">{{ username }}</span></a></li>
-					{% endif %}
-				</ul>
-			</nav>
-		</div>
-		</div>
-	</nav>
-
+	{% include 'globals/navbar.html' %}
     <!-- Crops -->
-    <div class="jarallax wthreelocationsaits agile-section" id="portfolio" style="background-image: url('{% static "images/7.jpg" %}');   width: 100%; height: 100%;";>
-	<div class="container">
-		
+
+		<div class="container">
+
 			<h3 class="agileits-title text-center">Categories</h3>
 			<section class="grid3d vertical" id="grid3d">
 				<div class="grid-wrap">
 					<div class="grid">
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/wheat.jpeg' %}" height="250" width="42" alt="Odyssey" ><figcaption><h4>WHEAT</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/corn.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>CORN</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/rice.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>RICE</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/millet.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>MILLET</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/sugarcane.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>SUGARCANE</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/cotton.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COTTON</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/coconut.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COCONUT</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/jute.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>JUTE</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/coffee.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COFFEE</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 1 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/wheat.jpeg' %}" height="250" width="42" alt="Odyssey" ><figcaption><h4>WHEAT</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 2 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/corn.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>CORN</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 3 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/rice.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>RICE</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 4 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/millet.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>MILLET</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 5 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/sugarcane.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>SUGARCANE</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 6 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/cotton.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COTTON</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 7 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/coconut.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COCONUT</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 8 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/jute.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>JUTE</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 9 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/coffee.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COFFEE</h4></figcaption></figure></a>
 					</div>
 				</div>
 			</section>

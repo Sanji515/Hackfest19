@@ -1,1 +1,2 @@
 Django==2.0
+matplotlib==3.0.2

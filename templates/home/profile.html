@@ -1,0 +1,337 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Hackfest19</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Grains Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //custom-theme -->
+<script type="text/javascript" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+<!-- stylesheet -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- Chocolat-CSS --> <link rel="stylesheet" href="{% static 'css/chocolat.css' %}" type="text/css" media="all">
+<!-- animation --><link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" media="all">
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- //stylesheet -->
+<!-- online fonts -->
+<link href="//fonts.googleapis.com/css?family=Cormorant+Unicase:300,400,500,600,700&subset=cyrillic,latin-ext,vietnamese" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- //online fonts -->
+<!-- font-awesome-icons -->
+<link href="{% static 'css/font-awesome.css' %}" type="text/css" rel="stylesheet">
+<!-- //font-awesome-icons -->
+<!-- Supportive-JavaScript -->
+<script src="{% static 'js/modernizr.js' %}"></script>
+<!-- //Supportive-JavaScript -->
+<script src="{% static 'js/forms.js' %}"></script>
+
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+
+	<!-- Script for forms -->
+
+</head>
+<body>
+<!-- banner -->
+<div class="banner">
+	{% include 'globals/navbar.html' %}
+
+</div>
+<!-- //banner -->
+
+
+
+<!-- form -->
+
+
+<!-- Modal -->
+<div class="modal fade bs-modal-sm log-sign" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li id="tab1" class=" active tab-style login-shadow "><a href="#signin" data-toggle="tab">Log In</a></li>
+              <li id="tab2" class=" tab-style "><a href="#signup" data-toggle="tab">Sign Up</a></li>
+
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content">
+
+        <div class="tab-pane fade active in" id="signin">
+            <form class="form-horizontal">
+            <fieldset>
+            <!-- Sign In Form -->
+            <!-- Text input-->
+
+               <div class="group">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Email address</label></div>
+
+
+            <!-- Password input-->
+            <div class="group">
+<input required="" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Password</label>
+    </div>
+<em>minimum 6 characters</em>
+
+           <div class="forgot-link">
+            <a href="#forgot" data-toggle="modal" data-target="#forgot-password"> I forgot my password</a>
+            </div>
+
+
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin"></label>
+              <div class="controls">
+                <button id="signin" name="signin" class="btn btn-primary btn-block">Log In</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+        </div>
+
+
+        <div class="tab-pane fade" id="signup">
+            <form class="form-horizontal">
+            <fieldset>
+            <!-- Sign Up Form -->
+            <!-- Text input-->
+            <div class="group">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">First Name</label></div>
+
+            <!-- Text input-->
+            <div class="group">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Last Name</label></div>
+
+            <!-- Password input-->
+            <div class="group">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Email</label></div>
+
+            <!-- Text input-->
+            <div class="group">
+<input required="" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Password</label></div>
+              <em>1-8 Characters</em>
+
+              <div class="group2">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Country</label></div>
+
+
+
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="confirmsignup"></label>
+              <div class="controls">
+                <button id="confirmsignup" name="confirmsignup" class="btn btn-primary btn-block">Sign Up</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--modal2-->
+
+<div class="modal fade bs-modal-sm" id="forgot-password" tabindex="0" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Password will be sent to your email</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+        <fieldset>
+        <div class="group">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Email address</label></div>
+
+
+        <div class="control-group">
+              <label class="control-label" for="forpassword"></label>
+              <div class="controls">
+                <button id="forpasswodr" name="forpassword" class="btn btn-primary btn-block">Send</button>
+              </div>
+            </div>
+          </fieldset>
+            </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- about -->
+<div class="jarallax agileits-about agile-section" id="about">
+	<div class="container">
+		<span class="wthree-line wthree-left " style="margin-top:3em; margin-left:-0.8em"></span>
+		<span class="wthree-line wthree-right" style="margin-top:3em; margin-right:-0.8em"></span>
+		<i class="fa fa-ellipsis-h" aria-hidden="true" style="margin-top:1.3em"></i>
+		<h3 class="agileits-title text-center">Profile</h3>
+		<div class="w3agile-about" style="margin-left:35%">
+			<div class="col-md-2 col-sm-2 col-xs-2 w3_agileits-about-left">
+
+				<div >
+				<img style="border-radius: 50%; width: 150%; margin-left: -5%" src="{% static 'images/4.jpg' %}" class="img-responsive" alt="">
+				</div>
+
+			</div>
+			<div class="col-md-8 col-sm-6 col-xs-6 w3_agileits-about-right">
+				<span class="w3ls-abt"></span>
+				<div style="margin-left:5%">
+					<h3 style="font-size:200%">Rounak Agarwal</h3>
+
+				<span class="w3ls-icon fa fa-map-marker" aria-hidden="true"></span>City<br>
+					<!--<li>3515 Carriage Court</li>
+					<li>Palm Springs</li>
+					<li>California.</li>-->
+
+				<span class="w3ls-icon fa fa-phone" aria-hidden="true"></span>Mobile<br>
+				<!--<ul>
+					<li>+12 345 6789</li>
+					<li>+12 345 6789</li>
+					<li>+12 345 6789</li>
+				</ul>-->
+
+				<!--<ul>
+					<li><a href="mailto:info@example.com">info@example.com</a></li>
+					<li><a href="mailto:info@example.com">info@example.com</a></li>
+					<li><a href="mailto:info@example.com">info@example.com</a></li>
+				</ul>-->
+
+				</div>
+				</div>
+
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //about -->
+
+<!-- portfolio -->
+<div class="jarallax wthreelocationsaits agile-section" id="portfolio">
+	<div class="container">
+		<h1 style=" text-decoration: underline;">Dealings</h1> <br>
+		<img src="{% static 'images/sales.png' %}" style="height:50%; width:50%">
+
+	</div>
+</div>
+<!-- //portfolio -->
+
+
+
+<!-- modal -->
+<div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">grains</h4>
+			</div>
+			<div class="modal-body">
+				<div class="agileits-w3layouts-info">
+					<img src="{% static 'images/2.jpg' %}" alt="" />
+					<p>Duis venenatis, turpis eu bibendum porttitor, sapien quam ultricies tellus, ac rhoncus risus odio eget nunc. Pellentesque ac fermentum diam. Integer eu facilisis nunc, a iaculis felis. Pellentesque pellentesque tempor enim, in dapibus turpis porttitor quis. Suspendisse ultrices hendrerit massa. Nam id metus id tellus ultrices ullamcorper.  Cras tempor massa luctus, varius lacus sit amet, blandit lorem. Duis auctor in tortor sed tristique. Proin sed finibus sem.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //modal -->
+
+<!-- footer -->
+<div class="agileits_w3layouts-footer">
+	<div class="col-md-6  agileinfo-copyright">
+		<p>© 2019 Hackfest19. All rights reserved </p>
+	</div>
+	<div class="col-md-6 agileinfo-icons">
+		<ul>
+			<li><a class="icon fb" href="#"><i class="fa fa-facebook"></i></a></li>
+			<li><a class="icon tw" href="#"><i class="fa fa-twitter"></i></a></li>
+			<li><a class="icon pin" href="#"><i class="fa fa-pinterest"></i></a></li>
+			<li><a class="icon db" href="#"><i class="fa fa-dribbble"></i></a></li>
+			<li><a class="icon gp" href="#"><i class="fa fa-google-plus"></i></a></li>
+		</ul>
+	</div>
+</div>
+<!-- //footer -->
+<!--portfolio-JavaScript -->
+		<script src="{% static 'js/classie.js' %}"></script>
+		<script src="{% static 'js/helper.js' %}"></script>
+		<script src="{% static 'js/grid3d.js' %}"></script>
+		<script>
+			new grid3D( document.getElementById( 'grid3d' ) );
+		</script>
+<!-- portfolio-JavaScript --
+<script src="js/jarallax.js"></script>
+<script src="js/SmoothScroll.min.js"></script>
+<script type="text/javascript">
+	/* init Jarallax */
+	$('.jarallax').jarallax({
+		speed: 0.5,
+		imgWidth: 1366,
+		imgHeight: 768
+	})
+</script>
+<!-- here starts scrolling icon -->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*
+					var defaults = {
+					containerID: 'toTop', // fading element id
+					containerHoverID: 'toTopHover', // fading element hover id
+					scrollSpeed: 1200,
+					easingType: 'linear'
+					};
+				*/
+
+				$().UItoTop({ easingType: 'easeOutQuart' });
+
+				});
+		</script>
+
+		<!-- start-smoth-scrolling -->
+		<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+		<!-- /ends-smoth-scrolling -->
+	<!-- //here ends scrolling icon -->
+</body>
+</html>

@@ -515,7 +515,7 @@ i.fa.fa-ellipsis-h {
 .w3_agileits-about-right span.w3ls-abt {
     background: #000;
     width: 3px;
-    height: 70px;
+    height: 100px;
     display: block;
     position: absolute;
     left: 5%;
@@ -597,11 +597,11 @@ div#services {
     margin-right: 1em;
 }
 span.w3ls-icon {
-    font-size: 4em;
+    font-size: 2em;
     padding: 0.2em;
     background: #fff;
     border-radius: 50%;
-    width: 80px;
+    width: 50px;
 }
 span.w3ls-icon.fa.fa-truck {
     color: #c52978;
