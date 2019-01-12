@@ -172,8 +172,36 @@ fieldset {
 :-ms-input-placeholder {
   color: #888;
 }
-</style>
 
+
+<!-- farmer info section style -->
+
+.style_prevu_kit
+{
+
+    display:inline-block;
+    border:0;
+    width:250px;
+    height:250px;
+    position: relative;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);
+	color: #fff;
+	padding:1%;
+}
+.style_prevu_kit
+{
+    box-shadow: 0px 0px 40px #4CAF50;
+
+}
+
+</style>
 
 <body>
 <!-- banner -->
@@ -183,8 +211,21 @@ fieldset {
 </div>
 
 
-<div class="contain" style = "position:fixed; right:80px; top:250px">
-  <form id="contact" action="" method="post">
+<div>
+    <div style="height: auto; width: 60%; float: left;">
+    <div class="style_prevu_kit" style="height:auto; width:100%;  margin-left:5%; margin-bottom:5%;">
+      <h2><font face="verdana" color="#2E4053"> <span id="name"></span></font></h2>
+      <p style="font-size: 17px"><font face="verdana" color="#2E4053">
+            <span id="price"></span>
+            <span id="location"></span>
+            <span id="quantity"></span>
+            <span id="description"></span>
+      </font></p>
+    </div>
+    </div>
+
+<div class="contain" style = "margin-right:5%; height:auto; width: 35%; margin-top:8%">
+  <form id="contact" action="" method="post" >
     <h3>ADD YOUR CROP</h3>
     <h4>Contact us for any query</h4>
       <fieldset>
@@ -210,5 +251,13 @@ fieldset {
 
   </form>
 </div>
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
