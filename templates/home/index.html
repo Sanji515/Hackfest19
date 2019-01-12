@@ -31,6 +31,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Supportive-JavaScript -->
 <script src="{% static 'js/modernizr.js' %}"></script>
 <!-- //Supportive-JavaScript -->
+<script src="{% static 'js/forms.js' %}"></script>
+
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
@@ -39,6 +41,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	});
 </script>
+
+	<!-- Script for forms -->
+
 </head>
 <body>
 <!-- banner -->
@@ -53,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<span class="icon-bar"></span>
 			</button>
 			<div class="w3_navigation_pos">
-				<h1><a href="index.html"><span>G</span></a></h1>
+				<h1><a href=""><span>G</span></a></h1>
 			</div>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -65,7 +70,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="#services" class="scroll"><span data-hover="Services">Services</span></a></li>
 					<li><a href="#portfolio" class="scroll"><span data-hover="Portfolio">Portfolio</span></a></li>
 					<li><a href="#team" class="scroll"><span data-hover="Portfolio">Team</span></a></li>
-					<li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>
+					<!--<li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>-->
+					<li><a href="#signup" data-toggle="modal" data-target=".log-sign"><span data-hover="login">Login</span></a></li>
 				</ul>
 			</nav>
 		</div>
@@ -146,7 +152,158 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	</div>
 </div>
-<!-- //banner -->	
+<!-- //banner -->
+
+
+
+<!-- form -->
+
+
+<!-- Modal -->
+<div class="modal fade bs-modal-sm log-sign" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li id="tab1" class=" active tab-style login-shadow "><a href="#signin" data-toggle="tab">Log In</a></li>
+              <li id="tab2" class=" tab-style "><a href="#signup" data-toggle="tab">Sign Up</a></li>
+
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content">
+
+        <div class="tab-pane fade active in" id="signin">
+            <form class="form-horizontal">
+            <fieldset>
+            <!-- Sign In Form -->
+            <!-- Text input-->
+
+               <div class="group">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Email address</label></div>
+
+
+            <!-- Password input-->
+            <div class="group">
+<input required="" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Password</label>
+    </div>
+<em>minimum 6 characters</em>
+
+           <div class="forgot-link">
+            <a href="#forgot" data-toggle="modal" data-target="#forgot-password"> I forgot my password</a>
+            </div>
+
+
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin"></label>
+              <div class="controls">
+                <button id="signin" name="signin" class="btn btn-primary btn-block">Log In</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+        </div>
+
+
+        <div class="tab-pane fade" id="signup">
+            <form class="form-horizontal">
+            <fieldset>
+            <!-- Sign Up Form -->
+            <!-- Text input-->
+            <div class="group">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">First Name</label></div>
+
+            <!-- Text input-->
+            <div class="group">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Last Name</label></div>
+
+            <!-- Password input-->
+            <div class="group">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Email</label></div>
+
+            <!-- Text input-->
+            <div class="group">
+<input required="" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Password</label></div>
+              <em>1-8 Characters</em>
+
+              <div class="group2">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Country</label></div>
+
+
+
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="confirmsignup"></label>
+              <div class="controls">
+                <button id="confirmsignup" name="confirmsignup" class="btn btn-primary btn-block">Sign Up</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--modal2-->
+
+<div class="modal fade bs-modal-sm" id="forgot-password" tabindex="0" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Password will be sent to your email</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+        <fieldset>
+        <div class="group">
+<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Email address</label></div>
+
+
+        <div class="control-group">
+              <label class="control-label" for="forpassword"></label>
+              <div class="controls">
+                <button id="forpasswodr" name="forpassword" class="btn btn-primary btn-block">Send</button>
+              </div>
+            </div>
+          </fieldset>
+            </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- about -->
 <div class="jarallax agileits-about agile-section" id="about">
 	<div class="container">
@@ -527,7 +684,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //modal -->
 <!-- map -->
 <div class="agileits_w3layouts-map">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6509687.090753893!2d-123.76387427440008!3d37.18697025540024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C+USA!5e0!3m2!1sen!2sin!4v1491201047627" style="border:0" allowfullscreen></iframe>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14671.136770026184!2d80.02505515!3d23.1780753!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1547224684843" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
 <!--//map -->
 <!-- footer -->
