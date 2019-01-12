@@ -105,6 +105,11 @@ def crops(request):
     context = {}
     return render(request, 'home/crops.html', context)
 
+def single_crop(request, pk):
+    context = {}
+
+    return render(request, 'home/buyorsell.html', context)
+
 
 def logout_url(request):
     logout(request)
