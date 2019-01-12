@@ -97,16 +97,38 @@ def index(request):
 
 
 def details(request):
-    context = {}
+
+    if request.user.is_authenticated:
+        username = request.user.username
+    else:
+        username = ''
+
+    context = {
+        'username': username
+    }
     return render(request, 'home/detail.html', context)
 
 
 def crops(request):
-    context = {}
+    if request.user.is_authenticated:
+        username = request.user.username
+    else:
+        username = ''
+
+    context = {
+        'username': username
+    }
     return render(request, 'home/crops.html', context)
 
 def single_crop(request, pk):
-    context = {}
+    if request.user.is_authenticated:
+        username = request.user.username
+    else:
+        username = ''
+
+    context = {
+        'username': username
+    }
 
     return render(request, 'home/buyorsell.html', context)
 
@@ -118,6 +140,7 @@ def logout_url(request):
 
 
 def profile(request):
+    username = ''
     # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -158,6 +181,14 @@ def profile(request):
     file_url = os.path.join(BASE_DIR, "static", "images", "sales.png")
     fig.savefig(file_url)
 
-    context = {}
+    if request.user.is_authenticated:
+        username = request.user.username
+    else:
+        username = ''
+
+
+    context = {
+        'username': username
+    }
 
     return render(request, 'home/profile.html', context)
