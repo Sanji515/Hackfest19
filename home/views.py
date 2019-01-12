@@ -11,6 +11,9 @@ from .forms import YourSignupForm, YourLoginForm
 def index(request):
     signup_form = YourSignupForm()
     login_form = YourLoginForm()
+    signup_error = 0
+    login_error = 0
+
     if 'signup' in request.POST:
         print('POST method')
         if YourSignupForm(request.POST):
@@ -56,13 +59,11 @@ def index(request):
         if YourLoginForm(request.POST):
                 print('submit')
                 login_form = YourLoginForm(request.POST)
-                print(login_form)
                 if login_form.is_valid():
                     print('valid')
                     username = login_form.cleaned_data['username']
                     password = login_form.cleaned_data['password']
                     user = authenticate(username=username, password=password)
-                    login_error = 0
                     login(request, user)
                 else:
                     print('form not valid')
@@ -83,7 +84,9 @@ def index(request):
     context = {
         'signup_form': signup_form,
         'login_form': login_form,
-        'username': username
+        'username': username,
+        'login_error': login_error,
+        'signup_error': signup_error,
     }
 
     return render(request, 'home/index.html', context)

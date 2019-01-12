@@ -66,8 +66,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<nav class="link-effect-2" id="link-effect-2">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="index.html" class="scroll"><span data-hover="Home">Home</span></a></li>
+					<li class="active"><a href="index.html" class="scroll"><span data-hover="Home">Services</span></a></li>
 					<li><a href="#about" class="scroll"><span data-hover="About" >About</span></a></li>
-					<li><a href="#services" class="scroll"><span data-hover="Services">Services</span></a></li>
 					<li><a href="#portfolio" class="scroll"><span data-hover="Portfolio">Portfolio</span></a></li>
 					<li><a href="#team" class="scroll"><span data-hover="Portfolio">Team</span></a></li>
 					<li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>
@@ -183,12 +183,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             	<fieldset>
 	            <!-- Sign In Form -->
 	            <!-- Text input-->
-
+	            {% if login_form.errors %}
+				    {% for field in login_form %}
+				        {% for error in field.errors %}
+				            <div class="alert alert-danger">
+				                <strong>{{ error|escape }}</strong>
+				            </div>
+				        {% endfor %}
+				    {% endfor %}
+				    {% for error in login_form.non_field_errors %}
+				        <div class="alert alert-danger">
+				            <strong>{{ error|escape }}</strong>
+				        </div>
+				    {% endfor %}
+				{% endif %}
             	<div class="group">
 					{{ login_form.username }}<span class="highlight"></span><span class="bar"></span>
     				<label class="label" for="date">Username</label>
     			</div>
-
 
             <!-- Password input-->
             <div class="group">
@@ -219,6 +231,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	            <fieldset>
 	            <!-- Sign Up Form -->
 	            <!-- Text input-->
+	            {% if signup_form.errors %}
+				    {% for field in signup_form %}
+				        {% for error in field.errors %}
+				            <div class="alert alert-danger">
+				                <strong>{{ error|escape }}</strong>
+				            </div>
+				        {% endfor %}
+				    {% endfor %}
+				    {% for error in signup_form.non_field_errors %}
+				        <div class="alert alert-danger">
+				            <strong>{{ error|escape }}</strong>
+				        </div>
+				    {% endfor %}
+				{% endif %}
 	            <div class="group">
 					{{ signup_form.firstname }}<span class="highlight"></span><span class="bar"></span>
 					    <label class="label" for="date">First Name</label>
@@ -772,5 +798,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 		<!-- /ends-smoth-scrolling -->
 	<!-- //here ends scrolling icon -->
+
+	{% if login_error %}
+		<script type="text/javascript">
+			$(document).ready(function(){
+		        $("#myModal").modal('show');
+		        // $('#id_username').prop('autofocus', true);
+		        // $('#id_password').val('');
+		    });
+		</script>
+	{% endif %}
+
+	{% if signup_error %}
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#myModal").modal('show');
+
+				// Toggling the tab data
+				$('#signup').addClass('active in');
+				$('#signin').removeClass('active in')
+
+				// Toggling the tab activeness
+				$('#tab2').addClass('active');
+				$('#tab1').removeClass('active');
+
+				$('#tab2').addClass('signup-shadow');
+   				$('#tab1').removeClass('login-shadow');
+		    });
+		</script>
+	{% endif %}
+
+
 </body>	
 </html>
