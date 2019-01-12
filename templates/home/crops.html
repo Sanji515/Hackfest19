@@ -51,23 +51,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	{% include 'globals/navbar.html' %}
     <!-- Crops -->
     <div class="jarallax wthreelocationsaits agile-section" id="portfolio" style="background-image: url('{% static "images/7.jpg" %}');   width: 100%; height: 100%;";>
-	<div class="container">
-		<span class="wthree-line wthree-left"></span>
-		<span class="wthree-line wthree-right"></span>
-		<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+		<div class="container">
 			<h3 class="agileits-title text-center">Categories</h3>
 			<section class="grid3d vertical" id="grid3d">
 				<div class="grid-wrap">
 					<div class="grid">
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/wheat.jpeg' %}" height="250" width="42" alt="Odyssey" ><figcaption><h4>WHEAT</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/corn.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>CORN</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/rice.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>RICE</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/millet.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>MILLET</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/sugarcane.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>SUGARCANE</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/cotton.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COTTON</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/coconut.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COCONUT</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/jute.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>JUTE</h4></figcaption></figure></a>
-						<a href="#"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/coffee.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COFFEE</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 1 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/wheat.jpeg' %}" height="250" width="42" alt="Odyssey" ><figcaption><h4>WHEAT</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 2 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/corn.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>CORN</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 3 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/rice.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>RICE</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 4 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/millet.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>MILLET</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 5 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/sugarcane.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>SUGARCANE</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 6 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/cotton.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COTTON</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 7 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/coconut.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COCONUT</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 8 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/jute.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>JUTE</h4></figcaption></figure></a>
+						<a href="{% url 'home:single_crop' 9 %}"><figure class="col-md-4 effect-zoe"><img src="{% static 'images/coffee.jpeg' %}" height="250" width="42" alt="Odyssey"><figcaption><h4>COFFEE</h4></figcaption></figure></a>
 					</div>
 				</div>
 			</section>
