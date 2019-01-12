@@ -1,5 +1,4 @@
-
-#!/usr/bin/env python
+# !/usr/bin/env python
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
@@ -11,9 +10,6 @@ from .forms import YourSignupForm, YourLoginForm
 
 import matplotlib.pyplot as plt
 import os
-
-
-# Create your views here.
 
 
 def index(request):
@@ -43,7 +39,7 @@ def index(request):
 
                 username = signup_form.cleaned_data['username']
                 password = signup_form.cleaned_data['password1']
-                firstname =  signup_form.cleaned_data.get('firstname')
+                firstname = signup_form.cleaned_data.get('firstname')
                 lastname = signup_form.cleaned_data.get('lastname')
                 mobile_no = signup_form.cleaned_data.get('mobile_no')
                 city = signup_form.cleaned_data.get('country')
@@ -67,17 +63,17 @@ def index(request):
             signup_form = YourSignupForm()
     elif 'signin' in request.POST:
         if YourLoginForm(request.POST):
-                print('submit')
-                login_form = YourLoginForm(request.POST)
-                if login_form.is_valid():
-                    print('valid')
-                    username = login_form.cleaned_data['username']
-                    password = login_form.cleaned_data['password']
-                    user = authenticate(username=username, password=password)
-                    login(request, user)
-                else:
-                    print('form not valid')
-                    login_error = 1
+            print('submit')
+            login_form = YourLoginForm(request.POST)
+            if login_form.is_valid():
+                print('valid')
+                username = login_form.cleaned_data['username']
+                password = login_form.cleaned_data['password']
+                user = authenticate(username=username, password=password)
+                login(request, user)
+            else:
+                print('form not valid')
+                login_error = 1
         else:
             login_form = YourLoginForm()
     else:
@@ -99,12 +95,14 @@ def index(request):
 
     return render(request, 'home/index.html', context)
 
+
 def details(request):
-    context={}
+    context = {}
     return render(request, 'home/detail.html', context)
 
+
 def crops(request):
-    context={}
+    context = {}
     return render(request, 'home/crops.html', context)
 
 
