@@ -214,50 +214,62 @@ fieldset {
   </div>
 
 
-<<<<<<< HEAD
-<div class="contain" style = "margin-right:5%; margin-top:5%;">
-  <form id="contact" method="POST">{% csrf_token %}
-=======
 <div>
+  {% if empty_list %}
+    <span class="current_crop"></span>
     <div style="height: auto; width: 60%; float: left;">
     <div class="style_prevu_kit" style="height:auto; width:100%;  margin-left:5%; margin-bottom:5%;">
       <h2><font face="verdana" color="#2E4053"> <span id="name"></span></font></h2>
       <p style="font-size: 17px"><font face="verdana" color="#2E4053">
-            <span id="price"></span>
-            <span id="location"></span>
-            <span id="quantity"></span>
-            <span id="description"></span>
-      </font></p>
+          Sorry! there are no available crops for this commodity.
+        </div>
     </div>
-    </div>
+  {% else %}
+    <span class="current_crop"></span>
+    {% for farmer in farmers %}
+      <div style="height: auto; width: 60%; float: left;">
+      <div class="style_prevu_kit" style="height:auto; width:100%;  margin-left:5%; margin-bottom:5%;">
+        <h2><font face="verdana" color="#2E4053"> <span id="name"></span></font></h2>
+        <p style="font-size: 17px"><font face="verdana" color="#2E4053">
+              <span id="display_name">{{fullname}}</span>
+              <span id="display_price">{{farmer.price}}</span>
+              <span id="display_location">{{farmer.location}}</span>
+              <span id="display_quantity">{{farmer.quantity}}</span>
+              <span id="display_description">{{farmer.description}}</span>
+        </font></p>
+      </div>
+      </div>
+    {% endfor %}
+  {% endif %}
 
-<div class="contain" style = "margin-right:5%; height:auto; width: 35%; margin-top:8%">
-  <form id="contact" action="" method="post" >
->>>>>>> origin/master
-    <h3>ADD YOUR CROP</h3>
-    <h4>Contact us for any query</h4>
-      <fieldset>
-      <input placeholder="Quantity" type="text" id="quantity" name="quantity" required>
+  <div class="contain" style = "margin-right:5%; height:auto; width: 35%; margin-top:8%">
+    <form id="contact" action="" method="post" >
+      <h3>ADD YOUR CROP</h3>
+      <h4>Contact us for any query</h4>
+        <fieldset>
+        <input placeholder="Quantity" type="text" id="quantity" name="quantity" required>
+        </fieldset>
+        <fieldset>
+        <input placeholder="Price per unit" type="number" id="price" name="price" required>
       </fieldset>
       <fieldset>
-      <input placeholder="Price per unit" type="number" id="price" name="price" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Location" type="text" id="location" name="location" required>
-    </fieldset>
+        <input placeholder="Location" type="text" id="location" name="location" required>
+      </fieldset>
+
+        <fieldset>
+        <input placeholder="Your Phone Number" type="number" id="phone" name="phone" required>
+      </fieldset>
 
       <fieldset>
-      <input placeholder="Your Phone Number" type="number" id="phone" name="phone" required>
-    </fieldset>
+        <textarea id="description" placeholder="Type your message here...."></textarea>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+      </fieldset>
 
-    <fieldset>
-      <textarea id="description" placeholder="Type your message here...."></textarea>
-    </fieldset>
-    <fieldset>
-      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-    </fieldset>
+    </form>
+  </div>
 
-  </form>
 </div>
 
   <script type="text/javascript">
@@ -280,7 +292,7 @@ fieldset {
               },
               dataType: 'json',
               success: function (response){
-                   alert('response.current_crop');
+                   $('.current_crop').append('<div style="height: auto; width: 60%; float: left;"><div class="style_prevu_kit" style="height:auto; width:100%;  margin-left:5%; margin-bottom:5%;"><h2><font face="verdana" color="#2E4053"> <span id="name"></span></font></h2><p style="font-size: 17px"><font face="verdana" color="#2E4053"><span id="display_name">'+response.fullname+'</span><span id="display_price">'+response.price+'</span><span id="display_location">'+response.location+'</span><span id="display_quantity">'+response.quantity+'</span><span id="display_description">'+response.description+'</span></font></p></div></div>');
               },
               error: function(rs, e){
                   console.log("This is error");

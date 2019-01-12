@@ -125,8 +125,16 @@ def single_crop(request, pk):
         user = get_object_or_404(User, Q(username=request.user.username))
         crop = get_object_or_404(Crop, Q(crop_id=pk))
         
+        profile = get_object_or_404(Profile, Q(user=user))
+        fullname = profile.firstname+' '+profile.lastname
+        print(fullname)
+
         farmer = Farmers.objects.create(user=user)
-        farmer.price = request.POST.get('price')
+        price = request.POST.get('price')
+        print(request.POST.get('quantity'))
+        print(int(price))
+        print(type(int(price)))
+        farmer.price = int(price)
         farmer.quantity = request.POST.get('quantity')
         farmer.location = request.POST.get('location')
         farmer.crop_mobile_no = request.POST.get('crop_mobile_no')
@@ -141,7 +149,8 @@ def single_crop(request, pk):
             'quantity': request.POST.get('quantity'),
             'location': request.POST.get('location'),
             'crop_mobile_no': request.POST.get('crop_mobile_no'),
-            'description': request.POST.get('description')
+            'description': request.POST.get('description'),
+            'fullname': fullname
         }
 
         return HttpResponse(JsonResponse(context), content_type='application/json')
@@ -151,9 +160,24 @@ def single_crop(request, pk):
     else:
         username = ''
 
+    farmers = Farmers.objects.all()
+    user = get_object_or_404(User, Q(username=request.user.username))
+        
+    profile = get_object_or_404(Profile, Q(user=user))
+    fullname = profile.firstname+' '+profile.lastname
+    print(fullname)
+
+    if len(farmers)>0:
+        empty_list = 0
+    else:
+        empty_list = 1
+
     context = {
         'pk': pk,
-        'username': username
+        'farmers': farmers,
+        'username': username,
+        'empty_list': empty_list,
+        'fullname': fullname
     }
 
     return render(request, 'home/buyorsell.html', context)
