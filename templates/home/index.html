@@ -33,14 +33,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //Supportive-JavaScript -->
 <script src="{% static 'js/forms.js' %}"></script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
 	});
-</script>
+</script> -->
 
 	<!-- Script for forms -->
 
@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<span class="icon-bar"></span>
 			</button>
 			<div class="w3_navigation_pos">
-				<h1><a href="index.html"><span>Hackfest19</span></a></h1>
+				<h1><a href="{% url 'home:home' %}"><span>Hackfest19</span></a></h1>
 			</div>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<nav class="link-effect-2" id="link-effect-2">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="index.html" class="scroll"><span data-hover="Home">Home</span></a></li>
-					<li class="active"><a href="index.html" class="scroll"><span data-hover="Home">Services</span></a></li>
+					<li class="active"><a href="{% url 'home:services' %}" class="scroll"><span data-hover="Home">Services</span></a></li>
 					<li><a href="#about" class="scroll"><span data-hover="About" >About</span></a></li>
 					<li><a href="#portfolio" class="scroll"><span data-hover="Portfolio">Portfolio</span></a></li>
 					<li><a href="#team" class="scroll"><span data-hover="Portfolio">Team</span></a></li>
@@ -788,14 +788,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- start-smoth-scrolling -->
 		<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			jQuery(document).ready(function($) {
 				$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
 			});
-		</script>
+		</script> -->
 		<!-- /ends-smoth-scrolling -->
 	<!-- //here ends scrolling icon -->
 
@@ -803,8 +803,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<script type="text/javascript">
 			$(document).ready(function(){
 		        $("#myModal").modal('show');
-		        // $('#id_username').prop('autofocus', true);
-		        // $('#id_password').val('');
+		        $('#id_username').prop('autofocus', true);
+		        $('#id_password').val('');
 		    });
 		</script>
 	{% endif %}
