@@ -122,20 +122,19 @@ input[type="submit"],input[type="reset"],a{
     font-weight: 700;
 }
 .navbar-nav > li > a {
-    margin: 0em 3em;
+    margin: 0em 2.25em;
     padding: 0 .1em;
     line-height: 1em;
     text-transform: uppercase;
 	font-size:1em;
 }
-.navbar-nav > li:nth-child(4) a {
-    margin-right: 2em !important;
-    margin-left: 23em;
+.navbar-nav > li:nth-child(1) a {
+    margin-left: 20em;
 }
 .w3_navigation_pos{
 	position: absolute;
     top:20%;
-    left:47%;
+    left:3%;
     z-index: 1;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -1403,7 +1402,7 @@ h4.modal-title {
 		margin: 0em 2.9em;
 	}
 	.w3_navigation_pos {
-       left: 46%;
+       left: 3%;
 	}
 	.banner-bottom {
 		margin: 2em 0 0;
@@ -1411,9 +1410,8 @@ h4.modal-title {
 	.container {
 		width: 94%;
 	}
-	.navbar-nav > li:nth-child(4) a {
-		margin-right: 2em !important;
-		margin-left: 12em;
+	.navbar-nav > li:nth-child(1) a {
+		margin-left: 10em;
 	}
 	.banner-info {
 		padding: 7em 0 0;
@@ -1558,13 +1556,13 @@ h4.modal-title {
 }
 @media screen and (max-width: 1024px){
 	.w3_navigation_pos {
-		left: 45%;
+		left: 3%;
 	}
 	.banner-bottom {
 		margin: 1em 0 0;
 	}
-	.navbar-nav > li:nth-child(4) a {
-       margin-left: 10em;
+	.navbar-nav > li:nth-child(1) a {
+       margin-left: 8.5em;
 	}
 	.agile-banner-bottom-grid1 {
 		width: 32.3%;
@@ -1599,8 +1597,8 @@ h4.modal-title {
 	}
 }
 @media screen and (max-width: 991px){
-	.navbar-nav > li:nth-child(4) a {
-		margin-left: 8em;
+	.navbar-nav > li:nth-child(1) a {
+		margin-left: 7em;
 	}
 	.w3ls-text h3 {
 		font-size: 1.5em;
@@ -1689,8 +1687,8 @@ h4.modal-title {
 	.navbar-nav > li > a {
 		margin: 0em 1.75em;
 	}
-	.navbar-nav > li:nth-child(4) a {
-		margin-left: 12em;
+	.navbar-nav > li:nth-child(1) a {
+		margin-left: 10em;
 	}
 	.agile-banner-bottom-grid1 {
 		width: 32.1%;
@@ -1783,15 +1781,14 @@ h4.modal-title {
 	}
 }	
 @media screen and (max-width: 800px){
-	.navbar-nav > li:nth-child(4) a {
-		margin-right: 0.6em !important;
-		margin-left: 5em !important;
+	.navbar-nav > li:nth-child(1) a {
+		margin-left: 4em !important;
 	}
 	.w3_navigation_pos h1 a span {
 		padding: .1em .4em;
 	}
 	.w3_navigation_pos {
-		left: 45%;
+		left: 3%;
 	}
 	.agile-banner-bottom-grid1 p {
 		margin-top: 0.5em;
@@ -1972,7 +1969,7 @@ h4.modal-title {
 		padding: 3em 0;
 	}
 	.w3_navigation_pos {
-		left: 45.5%;
+		left: 3%;
 	}
 	h3.agileits-title {
        font-size: 2.5em;
@@ -1980,8 +1977,8 @@ h4.modal-title {
 	.navbar-nav > li > a {
 		font-size: 0.9em;
 	}
-	.navbar-nav > li:nth-child(4) a {
-     	margin-left: 9em !important;
+	.navbar-nav > li:nth-child(1) a {
+     	margin-left: 7.5em !important;
 	}
 	.agileits-about span.wthree-line {
 		top: 15%;
@@ -2096,16 +2093,15 @@ h4.modal-title {
 		margin: 1.85em 0;
 	}
 	.w3_navigation_pos {
-		left: 5%;
+		left: .5%;
 		top:7%;
 		position:inherit;
 	}
 	.w3_navigation_pos h1 a{
 		display:inline-block;
 	}
-	.navbar-nav > li:nth-child(4) a {
+	.navbar-nav > li:nth-child(1) a {
 		margin-left: 0 !important;
-		margin-right: 0 !important;
 	}
 	.navbar-default .navbar-toggle {
 		border-color: #046d32;
@@ -3041,7 +3037,7 @@ h4.modal-title {
 		padding: .01em .4em;
 	}
 	.w3_navigation_pos {
-		left: 15px;
+		left: 1px;
 		top:22%;
 	}
 	.navbar-toggle {
