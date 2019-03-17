@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- banner -->
 <div class="banner">
-	{% include 'globals/navbar.html' %}
+	{% include 'globals/nav2.html' %}
 
 </div>
 <!-- //banner -->
@@ -208,14 +208,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-8 col-sm-6 col-xs-6 w3_agileits-about-right">
 				<span class="w3ls-abt"></span>
 				<div style="margin-left:5%">
-					<h3 style="font-size:200%">Rounak Agarwal</h3>
+					<h3 style="font-size:200%">{{username}}</h3>
 
-				<span class="w3ls-icon fa fa-map-marker" aria-hidden="true"></span>City<br>
+				<span class="w3ls-icon fa fa-map-marker" aria-hidden="true"></span>{{city}}<br>
 					<!--<li>3515 Carriage Court</li>
 					<li>Palm Springs</li>
 					<li>California.</li>-->
 
-				<span class="w3ls-icon fa fa-phone" aria-hidden="true"></span>Mobile<br>
+				<span class="w3ls-icon fa fa-phone" aria-hidden="true"></span>{{mob}}<br>
 				<!--<ul>
 					<li>+12 345 6789</li>
 					<li>+12 345 6789</li>

@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
@@ -113,7 +114,6 @@ def crops(request):
         username = request.user.username
     else:
         username = ''
-
     context = {
         'username': username
     }
@@ -160,8 +160,7 @@ def single_crop(request, pk):
         username = request.user.username
     else:
         username = ''
-
-
+        return redirect('home:home')
     farmers = Farmers.objects.filter(crop_id=pk)
     user = get_object_or_404(User, Q(username=request.user.username))
         
@@ -233,14 +232,20 @@ def profile(request):
     file_url = os.path.join(BASE_DIR, "static", "images", "sales.png")
     fig.savefig(file_url)
 
+    user = get_object_or_404(User, Q(username=request.user.username))
+    profile = get_object_or_404(Profile, Q(user=user))
     if request.user.is_authenticated:
         username = request.user.username
+        mob = profile.mobile_no
+        city = profile.city
     else:
         username = ''
 
 
     context = {
-        'username': username
+        'username': username,
+        'mob': mob,
+        'city': city
     }
 
     return render(request, 'home/profile.html', context)

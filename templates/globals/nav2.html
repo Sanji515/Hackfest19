@@ -16,11 +16,7 @@
 			<nav class="link-effect-2" id="link-effect-2">
 				<ul class="nav navbar-nav">
 					<li class="active" ><a href="{% url 'home:home' %}" class="scroll"><span data-hover="Home">Home</span></a></li>
-					<li><a href="{% url 'home:services' %}" class="scroll"><span data-hover="Home">Services</span></a></li>
-					<li><a href="#about" class="scroll"><span data-hover="About" >About</span></a></li>
-					<!--<li><a href="#portfolio" class="scroll"><span data-hover="Portfolio">Portfolio</span></a></li>-->
-					<li><a href="#team" class="scroll"><span data-hover="Portfolio">Team</span></a></li>
-					<li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>
+					<li><a href="{% url 'home:services' %}" class="scroll"><span data-hover="Services">Services</span></a></li>
 					{% if username == '' %}
 						<li><a href="#singup" data-toggle="modal" data-target=".log-sign" class="scroll"><span data-hover="Sign in">Sign in</span></a></li>
 					{% else %}
